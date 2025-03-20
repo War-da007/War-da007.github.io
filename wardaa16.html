@@ -46,8 +46,8 @@
   <p>Hello! I'm Warda, I am in 10th grade. Say hi!</p>
 	<input id="Name" placeholder="Name ">
   <input id="Email" placeholder="Your email">
-  <input id="submit" type="submit">
-	
+	<input id="Food" placeholder="Favorite food">
+	<input id="submit" type="submit">
 	<script type="module">
 	  // Import the functions you need from the SDKs you need
 	  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
@@ -71,11 +71,11 @@
 
 	  // Initialize Firebase
 	  const app = initializeApp(firebaseConfig);
-	  const analytics = getAnalytics(app);
-		const db = getDatabase(app);
-    const Name = document.querySelector("#Name") 
-    const Email = document.querySelector("#Email")
-    document.querySelector('#submit').addEventListener('click', Submit)
+	  const db = getDatabase(app);
+const Name = document.querySelector("#Name")
+const Email = document.querySelector("#Email")
+const Food = document.querySelector("#Food")
+document.querySelector('#submit').addEventListener('click', Submit)
 		
 		
 		
@@ -86,10 +86,12 @@
 		  set(ref(db, timestamp), {
 			  Name: Name.value,
 		      email: Email.value,
+				    food: Food.value,
 		  });
 
 		  Name.value = ""
 		  Email.value = ""
+			Food.value =""
 		}
 		function buildTimestamp() {
 		  const now = new Date();
